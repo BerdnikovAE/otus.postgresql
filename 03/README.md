@@ -13,7 +13,7 @@ gcloud compute instances create vm-postgresql \
 # заходим в новую VM
 PS C:\p\otus.postgresql.code> ssh -i gcp ae@34.88.169.125
 
-# ставим postgresql 14-sq
+# ставим postgresql 14-ый
 sudo apt update && sudo apt upgrade -y && sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - && sudo apt-get update && sudo apt-get -y install postgresql-14
 
 # создадим табличку в БД postgres
@@ -111,7 +111,7 @@ gcloud compute instances stop vm-postgresql --zone=europe-north1-a
 gcloud compute instances detach-disk vm-prosgresql --disk disk-1 --zone=europe-north1-a
 
 # подключаем диск к новой VM
-gcloud compute instances attach-disk vm-postgresql-2 --disk disk-1
+gcloud compute instances attach-disk vm-postgresql-2 --disk disk-1 --zone=europe-north1-a
 
 # снова ставим 14-ый postgresql
 sudo apt update && sudo apt upgrade -y && sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - && sudo apt-get update && sudo apt-get -y install postgresql-14
