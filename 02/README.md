@@ -17,7 +17,7 @@ gcloud compute instances create vm-admin --zone=europe-north1-a --machine-type=e
 Дальше все действия с админской машинки - подключаемся ```ssh ae@x.x.x.x``` (ip-шник внешний посмотреть в Google Cloud Console)
 ```
 # делаем машинку для игрищ с докером 
-gcloud compute instances create vm-docker --zone=europe-north1-a --machine-type=e2-sm```all
+gcloud compute instances create vm-docker --zone=europe-north1-a --machine-type=e2-small
 
 # открыть порты 
 gcloud compute --project=double-scholar-377612 firewall-rules create postgres-5432 --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0
